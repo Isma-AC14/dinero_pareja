@@ -28,7 +28,7 @@ jobs:
       - name: Compilar IPA
         run: flutter build ipa --release --no-codesign
 
-            - name: Mostrar archivos generados
+      - name: Mostrar archivos generados
         run: |
           echo "=== ARCHIVE ==="
           find build/ios/archive -maxdepth 3 -type f | head -100
