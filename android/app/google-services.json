@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513011070074",
+    "project_id": "cuenta-comun-43e53",
+    "storage_bucket": "cuenta-comun-43e53.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513011070074:android:79eb0b305b76b00d76f7c3",
+        "android_client_info": {
+          "package_name": "com.example.dinero_pareja"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGbk2aQv6DPZRXQBRFSXVpOoM5Lxa57Mc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
