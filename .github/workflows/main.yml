@@ -25,11 +25,11 @@ jobs:
       - name: Comprobar proyecto
         run: flutter analyze || true
 
-      - name: Compilar iOS
-        run: flutter build ios --release --no-codesign
+      - name: Compilar IPA
+        run: flutter build ipa --release --no-codesign
 
-      - name: Guardar aplicación
+      - name: Guardar IPA
         uses: actions/upload-artifact@v4
         with:
-          name: ios-build
-          path: build/ios/iphoneos/
+          name: dinero-pareja-ipa
+          path: build/ios/ipa/*.ipa
