@@ -25,18 +25,28 @@ jobs:
       - name: Comprobar proyecto
         run: flutter analyze || true
 
-      - name: Compilar IPA
-        run: flutter build ipa --release --no-codesign --export-method development
+      - name: Compilar iOS sin firma
+        run: flutter build ios --release --no-codesign
 
-      - name: Mostrar archivos generados
+      - name: Crear IPA sin firmar
         run: |
-          echo "=== ARCHIVE ==="
-          find build/ios/archive -maxdepth 3 -type f | head -100
-          echo "=== IOS BUILD ==="
-          find build/ios -maxdepth 3 -type f | head -200
+          set -e
 
-      - name: Guardar archivo IPA
+          mkdir -p dist
+          mkdir -p build/ios/iphoneos/Payload
+
+          cp -R build/ios/iphoneos/Runner.app build/ios/iphoneos/Payload/
+
+          cd build/ios/iphoneos
+          zip -r ../../../dist/dinero-pareja.ipa Payload
+
+          cd ../../..
+          echo "=== IPA GENERADO ==="
+          ls -lh dist/dinero-pareja.ipa
+
+      - name: Guardar IPA
         uses: actions/upload-artifact@v4
         with:
           name: dinero-pareja-ipa
-          path: build/ios/ipa/*.ipa
+          path: dist/dinero-pareja.ipa
+          if-no-files-found: error
