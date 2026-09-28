@@ -35,8 +35,8 @@ jobs:
           echo "=== IOS BUILD ==="
           find build/ios -maxdepth 3 -type f | head -200
 
-      - name: Guardar compilación iOS
+      - name: Guardar archivo IPA
         uses: actions/upload-artifact@v4
         with:
-          name: dinero-pareja-ios
-          path: build/ios/
+          name: dinero-pareja-ipa
+          path: build/ios/ipa/*.ipa
