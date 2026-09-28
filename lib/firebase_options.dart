@@ -6,14 +6,15 @@ import 'package:flutter/foundation.dart' show defaultTargetPlatform, TargetPlatf
 
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
-    switch (defaultTargetPlatform) {
-      case TargetPlatform.android:
-      case TargetPlatform.iOS:
-        return ios;
-      default:
-        return android;
-    }
+  switch (defaultTargetPlatform) {
+    case TargetPlatform.android:
+      return android;
+    case TargetPlatform.iOS:
+      return ios;
+    default:
+      return android;
   }
+}
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDztPFNY2BmDhq3jYH41sq_y1Qq-UdojFU',
