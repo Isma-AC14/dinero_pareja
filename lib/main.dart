@@ -9,6 +9,7 @@ import 'objetivos_page.dart';
 import 'historial_page.dart';
 import 'gastos_recurrentes_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'firebase_options.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'resumen_page.dart';
 import 'resumen_recurrentes_page.dart';
@@ -44,7 +45,9 @@ Future<void> main() async {
 
   print('ANTES FIREBASE: ${Firebase.apps.length}');
 
-await Firebase.initializeApp();
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
 
 const AndroidInitializationSettings configuracionAndroid =
     AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -59,11 +62,11 @@ await notificaciones.initialize(
 );
 
 
-await FirebaseMessaging.instance.requestPermission(
-  alert: true,
-  badge: true,
-  sound: true,
-);
+// await FirebaseMessaging.instance.requestPermission(
+//   alert: true,
+//   badge: true,
+//   sound: true,
+// );
 
 print('DESPUES FIREBASE: ${Firebase.apps.length}');
 
@@ -100,7 +103,18 @@ class DineroParejaApp extends StatelessWidget {
       foregroundColor: Colors.black,
     ),
   ),
-  home: const AuthGate(),
+  home: const Scaffold(
+  backgroundColor: Colors.black,
+  body: Center(
+    child: Text(
+      'DINERO DE LOS DOS',
+      style: TextStyle(
+        color: Colors.pink,
+        fontSize: 24,
+      ),
+    ),
+  ),
+),
 );
 }
 
@@ -947,4 +961,3 @@ SizedBox(
     );
   }
 }
-
