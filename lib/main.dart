@@ -43,40 +43,8 @@ Future<void> mostrarNotificacion(String titulo, String mensaje) async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  print('ANTES FIREBASE: ${Firebase.apps.length}');
-
-await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
-);
-
-const AndroidInitializationSettings configuracionAndroid =
-    AndroidInitializationSettings('@mipmap/ic_launcher');
-
-const InitializationSettings configuracion =
-    InitializationSettings(
-  android: configuracionAndroid,
-);
-
-await notificaciones.initialize(
-  settings: configuracion,
-);
-
-
-// await FirebaseMessaging.instance.requestPermission(
-//   alert: true,
-//   badge: true,
-//   sound: true,
-// );
-
-print('DESPUES FIREBASE: ${Firebase.apps.length}');
-
-print('FIREBASE INICIADO');
-
-  firebase = FirebaseService();
-
   runApp(const DineroParejaApp());
 }
-
 class DineroParejaApp extends StatelessWidget {
   const DineroParejaApp({super.key});
   @override
