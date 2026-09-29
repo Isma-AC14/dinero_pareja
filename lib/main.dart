@@ -43,6 +43,10 @@ Future<void> mostrarNotificacion(String titulo, String mensaje) async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const DineroParejaApp());
 }
 class DineroParejaApp extends StatelessWidget {
@@ -75,7 +79,7 @@ class DineroParejaApp extends StatelessWidget {
   backgroundColor: Colors.black,
   body: Center(
     child: Text(
-      'DINERO DE LOS DOS',
+      'TE AMO :3',
       style: TextStyle(
         color: Colors.pink,
         fontSize: 24,
