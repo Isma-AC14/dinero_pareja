@@ -90,18 +90,7 @@ class DineroParejaApp extends StatelessWidget {
       foregroundColor: Colors.black,
     ),
   ),
-  home: const Scaffold(
-  backgroundColor: Colors.black,
-  body: Center(
-    child: Text(
-      'TE AMO MUCHISIMO :3',
-      style: TextStyle(
-        color: Colors.pink,
-        fontSize: 24,
-      ),
-    ),
-  ),
-),
+  home: const AuthGate(),
 );
 }
 
