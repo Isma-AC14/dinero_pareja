@@ -48,6 +48,8 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  firebase = FirebaseService();
+
   if (defaultTargetPlatform == TargetPlatform.android) {
     const AndroidInitializationSettings configuracionAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
