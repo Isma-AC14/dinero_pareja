@@ -13,6 +13,7 @@ import 'firebase_options.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'resumen_page.dart';
 import 'resumen_recurrentes_page.dart';
+import 'package:flutter/foundation.dart';
 
 late FirebaseService firebase;
 
@@ -47,6 +48,20 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  if (defaultTargetPlatform == TargetPlatform.android) {
+    const AndroidInitializationSettings configuracionAndroid =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+
+    const InitializationSettings configuracion =
+        InitializationSettings(
+      android: configuracionAndroid,
+    );
+
+    await notificaciones.initialize(
+      settings: configuracion,
+    );
+  }
+
   runApp(const DineroParejaApp());
 }
 class DineroParejaApp extends StatelessWidget {
@@ -79,7 +94,7 @@ class DineroParejaApp extends StatelessWidget {
   backgroundColor: Colors.black,
   body: Center(
     child: Text(
-      'TE AMO :3',
+      'TE AMO MUCHISIMO :3',
       style: TextStyle(
         color: Colors.pink,
         fontSize: 24,
